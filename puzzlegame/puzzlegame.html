@@ -92,25 +92,25 @@
         }
 
 
-                function checkforMatch() {
-                    let i1 = imgsrc(document.getElementById("img1").src);
-                    let i2 = imgsrc(document.getElementById("img2").src);
-                    let i3 = imgsrc(document.getElementById("img3").src);
-                    let i4 = imgsrc(document.getElementById("img4").src);
+        function checkforMatch() {
+            let i1 = imgsrc(document.getElementById("img1").src);
+            let i2 = imgsrc(document.getElementById("img2").src);
+            let i3 = imgsrc(document.getElementById("img3").src);
+            let i4 = imgsrc(document.getElementById("img4").src);
 
-                    let nomatchStyle = "2px solid gray";
-                    let matchStyle = "5px solid red";
+            let nomatchStyle = "2px solid gray";
+            let matchStyle = "5px solid red";
 
-                if ((i1 === i2) && (i2 === i3) && (i3 === i4)) {
-                 image1.style.border = matchStyle;
-                 image2.style.border = matchStyle;
-                 image3.style.border = matchStyle;
-                 image4.style.border = matchStyle;
-                } else {
-                 image1.style.border = nomatchStyle;
-                 image2.style.border = nomatchStyle;
-                 image3.style.border = nomatchStyle;
-                 image4.style.border = nomatchStyle;
+            if ((i1 === i2) && (i2 === i3) && (i3 === i4)) {
+                image1.style.border = matchStyle;
+                image2.style.border = matchStyle;
+                image3.style.border = matchStyle;
+                image4.style.border = matchStyle;
+            } else {
+                image1.style.border = nomatchStyle;
+                image2.style.border = nomatchStyle;
+                image3.style.border = nomatchStyle;
+                image4.style.border = nomatchStyle;
                }
            }
 

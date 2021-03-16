@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload="onchange()">
+    <h3>Type anything slowly</h3>
+    <textarea id="text"  cols="20" rows="3"></textarea>
+</body>
+</html>
+    <script>
+
+        var main =[];
+        var str = "";
+        main[1]='Y';
+        main[2]='o';
+        main[3]='u';
+        main[4]=' ';
+        main[5]='a';
+        main[6]='r';
+        main[7]='e';
+        main[8]=' ';
+        main[9]='a';
+        main[10]=' ';
+        main[11]='g';
+        main[12]='o';
+        main[13]='o';
+        main[14]='d';
+        main[15]=' ';
+        main[16]='m';
+        main[17]='a';
+        main[18]='n';
+        function onchange() {
+            var word=document.getElementById("text").value;
+            let x=word.length;
+            if (x>0) {
+                for (let i=1;i<=x;i++) {
+                    str=str+ main[i];
+                    if (i===19) {
+                        document.getElementById("text").value= "";
+                        str= "";
+                    }
+                }
+            }
+            document.getElementById("text").value = str;
+            str = "";
+            setTimeout("onchange()", 1);
+        }
+
+
+    </script>

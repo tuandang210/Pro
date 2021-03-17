@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>fs</title>
+    <style>
+        tr {
+            height: 25px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+    <table cellspacing="0" cellpadding="8" style=" width: 450px" >
+        <tr>
+            <td colspan="3"><h3>Add New Product</h3></td>
+        </tr>
+        <tr style="background-color: lightgrey">
+            <td><input type="text" id="nameCar" placeholder="New Product" style="width: 250px;"></td>
+            <td colspan="2" style="width: 100px"><button onclick="addCars()" type="button" id="add" style="color:white; background-color: green">Add</button> </td>
+        </tr>
+        <tr>
+            <td colspan="3"><b>Product Name</b></td>
+        </tr>
+    </table>
+    </form>
+<form id="table2">
+
+</form>
+</body>
+<script>
+
+    let arrayCars=[];
+    let table, i;
+
+    function addCars() {
+        let car=document.getElementById("nameCar").value;
+        arrayCars.push(car);
+        displayCars();
+    }
+
+    function displayCars() {
+        table = "<table cellspacing='0' style=' width: 450px;'>"
+        for (i=0; i<arrayCars.length; i++) {
+            table = table +"<tr>";
+            table = table + "<td id='"+i+"' style='width: 300px'>"+arrayCars[i]+"</td>" +
+                "<td><button onclick='editName("+i+")' style='width: 60px' type='button' name='edit'>Edit</button> </td>" +
+                "<td><button onclick='delCars("+i+")' style='width: 60px' type='button' name='del'>Delete</button> </td>";
+            table= table + "</tr>";
+        }
+        table = table + "</table>";
+        document.getElementById('table2').innerHTML=table;
+    }
+
+    function editName(i) {
+        let a=prompt("Đổi tên");
+        document.getElementById(i).innerHTML=a;
+    }
+
+    function delCars(i) {
+        arrayCars.splice(i,1);
+        displayCars();
+    }
+</script>
+</html>

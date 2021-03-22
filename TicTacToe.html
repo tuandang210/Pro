@@ -28,7 +28,7 @@
             table = table +"<tr>";
             for (let j=0;j<3; j++) {
                 let id=""+i+j;
-                table = table + "<td id="+id+"' onclick='onClick(this.id, "+i+", "+j+")' >"+arr[i][j]+"</td>"
+                table+="<td onclick='onClick(this.id, "+i+", "+j+")' id="+id+">"+arr[i][j]+"</td>"
             }
             table= table + "</tr>";
         }

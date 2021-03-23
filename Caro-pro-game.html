@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>fds</title>
+    <style>
+        td {
+            height: 50px;
+            width: 50px;
+            font-size: 30px;
+        }
+
+        table {
+            border: 1px solid lightslategray;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    let arr=[]
+    for (let k = 0; k < 20; k++) {
+        arr[k] = [];
+        for (let l = 0; l < 20; l++) {
+            arr[k][l] = "";
+        }
+    }
+        let table;
+    table = "<table cellspacing='0' border='1px'>"
+    for (let i=0; i<20; i++) {
+        table = table +"<tr>";
+        for (let j=0;j<20; j++) {
+            let id=""+i+j;
+            table+="<td onclick='onClick(this.id, "+i+", "+j+")' id="+id+">"+arr[i][j]+"</td>"
+        }
+        table= table + "</tr>";
+    }
+    table = table + "</table>";
+    document.write(table);
+
+
+    let XO = 2;
+    function onClick(id,i,j) {
+
+        let a=document.getElementById(id).innerHTML;
+        if (a== "") {
+            if (XO%2===0) {
+                document.getElementById(id).innerHTML = "X";
+                XO++;
+            } else {
+                document.getElementById(id).innerHTML = "O";
+                XO++;
+            }
+        } arr[i][j] = document.getElementById(id).innerHTML;
+        checkWin();
+    }
+
+
+    function checkWin () {
+        let winner="";
+        let count;
+        let count1;
+        for (let i = 0; i < arr.length; i++) {
+            for (count=0;count<16;count++) {
+                if (arr[i][count] === arr[i][count+1] && arr[i][count] === arr[i][count+2] && arr[i][count] === arr[i][count+3] && arr[i][count] === arr[i][count+4] && arr[i][count] !== "") {
+                    winner = arr[i][count];
+                    alert("Winner: " + winner)
+                    break;
+                }
+            }
+
+        }
+        for (count1=0;count1<16;count1++) {
+            for (let j = 0; j < arr.length; j++) {
+                if (arr[count1][j] === arr[count1 + 1][j] && arr[count1][j] === arr[count1 + 2][j] && arr[count1][j] === arr[count1 + 3][j] && arr[count1][j] === arr[count1 + 4][j] && arr[count1][j] !== "") {
+                    winner = arr[count1][j];
+                    alert("Winner: " + winner)
+                    break;
+                }
+            }
+        }
+
+        for (let a=0; a<16;a++) {
+            for (let b=0;b<16;b++) {
+                if (arr[a][b]===arr[a+1][b+1] && arr[a][b]===arr[a+2][b+2] && arr[a][b]===arr[a+3][b+3] && arr[a][b]===arr[a+4][b+4] && arr[a][b] !== "") {
+                    winner=arr[a][b];
+                    alert('Winner: ' + winner)
+                    break;
+                }
+            }
+        }
+
+        for (let a=0; a<16;a++) {
+            for (let b=20;b>4;b--) {
+                if (arr[a][b]===arr[a+1][b-1] && arr[a][b]===arr[a+2][b-2] && arr[a][b]===arr[a+3][b-3] && arr[a][b]===arr[a+4][b-4] && arr[a][b] !== "") {
+                    winner=arr[a][b];
+                    alert('Winner: ' + winner)
+                    break;
+                }
+            }
+        }
+    }
+</script>
